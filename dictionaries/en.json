@@ -1,5 +1,42 @@
 {
+  "nav": {
+    "home": "Home",
+    "about": "About us",
+    "partners": "Partners",
+    "archive": "Archive",
+    "contact": "Contact"
+  },
   "main": {
-    "hello": "Welcome"
+    "date": "2 - 3",
+    "monthYear": "November 2024",
+    "titleLocation": "Innovation forum \"John Atanasoff\" – Sofia Tech Park",
+    "countdownTimer": {
+      "title": "Until OpenFest remain:",
+      "days": "Days",
+      "hours": "Hours",
+      "minutes": "Minutes"
+    },
+    "description": {
+      "title": "What is OpenFest?",
+      "text": "OpenFest is the biggest Bulgarian conference dedicated to the free culture, free knowledge sharing, free and open-source software. The event is organized by volunteers and is free to attend. OpenFest is held annually in Sofia, Bulgaria."
+    },
+    "cfp": {
+      "title": "How to participate in OpenFest 2024",
+      "lecture": "Take part with a lecture, a workshop or a booth",
+      "volunteers": "Join us as a volunteer",
+      "partners": "Support the event as a partner"
+    },
+    "partners": {
+      "sponsors": "Sponsors",
+      "media": "Media partners"
+    }
+  },
+  "footer": {
+    "description": "OpenFest is a event dedicated to free culture, free and open-source software, and free sharing of knowledge.",
+    "eventDate": "2-3 November 2024",
+    "eventLocation": "Sofia Tech Park",
+    "contactTeam": "Connect with the team",
+    "contactDirections": "If you have any questions and suggestions or if you would like to participate in OpenFest 2024, get in touch with us:",
+    "copyright": "Some rights reserved."
   }
 }

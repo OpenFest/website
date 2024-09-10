@@ -1,0 +1,19 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  p {
+    @apply text-black;
+  }
+}
+
+@layer components {
+  .fa-color-custom {
+    color: #000;
+  }
+  .fa-color-custom:hover {
+    color: red;
+  }
+}

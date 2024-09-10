@@ -1,8 +1,0 @@
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-.container {
-  @apply mx-auto px-6;
-}

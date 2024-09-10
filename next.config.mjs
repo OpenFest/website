@@ -12,8 +12,8 @@ const nextConfig = {
         destination: '/news/1',
         permanent: true,
       },
-    ]
+    ];
   },
-}
+};
 
-export default nextConfig
+export default nextConfig;
