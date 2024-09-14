@@ -4,61 +4,57 @@ import { getDictionary } from '@/dictionaries';
 
 const Partners = async ({ lang }) => {
   const dictionary = await getDictionary(lang);
+  const sponsorLogos = ['logo-1', 'logo-2', 'logo-3', 'logo-4', 'logo-5'];
+  const mediaPartnerLogos = ['logo-1', 'logo-2', 'logo-3', 'logo-4', 'logo-5'];
 
-  console.log(lang);
+  const getShuffledLogos = (logos) => {
+    for (let i = logos.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+
+      [logos[i], logos[j]] = [logos[j], logos[i]];
+    }
+    return logos;
+  };
 
   return (
-    <div className='my-14'>
-      <div className='lg:py-22 mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8'>
-        <p className='text-center text-base font-semibold uppercase tracking-wider text-gray-600'>
-          {dictionary.main.partners.media}
-        </p>
-        <div className='mt-6 grid grid-cols-2 gap-0.5 md:grid-cols-3 lg:mt-12'>
-          <div className='col-span-1 flex justify-center bg-gray-50 px-8 py-8'>
-            <Image
-              className='max-h-12'
-              src='https://tailwindui.com/img/logos/transistor-logo-gray-400.svg'
-              alt='Workcation'
-            />
+    <section>
+      <div className='container flex flex-col gap-8 sm:gap-12'>
+        <div>
+          <h2 className='pb-4 text-center text-2xl text-blue-2 sm:pb-8 sm:text-4xl'>
+            {dictionary.main.partners.sponsors}
+          </h2>
+          <div className='flex flex-wrap justify-evenly gap-6'>
+            {getShuffledLogos(sponsorLogos).map((logo) => {
+              return (
+                <div
+                  key={logo}
+                  className='cursor-pointer opacity-50 hover:opacity-100'
+                >
+                  <p>{logo}</p>
+                </div>
+              );
+            })}
           </div>
-          <div className='col-span-1 flex justify-center bg-gray-50 px-8 py-8'>
-            <Image
-              className='max-h-12'
-              src='https://tailwindui.com/img/logos/mirage-logo-gray-400.svg'
-              alt='Mirage'
-            />
-          </div>
-          <div className='col-span-1 flex justify-center bg-gray-50 px-8 py-8'>
-            <Image
-              className='max-h-12'
-              src='https://tailwindui.com/img/logos/tuple-logo-gray-400.svg'
-              alt='Tuple'
-            />
-          </div>
-          <div className='col-span-1 flex justify-center bg-gray-50 px-8 py-8'>
-            <Image
-              className='max-h-12'
-              src='https://tailwindui.com/img/logos/laravel-logo-gray-400.svg'
-              alt='Laravel'
-            />
-          </div>
-          <div className='col-span-1 flex justify-center bg-gray-50 px-8 py-8'>
-            <Image
-              className='max-h-12'
-              src='https://tailwindui.com/img/logos/statickit-logo-gray-400.svg'
-              alt='StaticKit'
-            />
-          </div>
-          <div className='col-span-1 flex justify-center bg-gray-50 px-8 py-8'>
-            <Image
-              className='max-h-12'
-              src='https://tailwindui.com/img/logos/statamic-logo-gray-400.svg'
-              alt='Statamic'
-            />
+        </div>
+        <div>
+          <h2 className='pb-4 text-center text-2xl text-blue-2 sm:pb-8 sm:text-4xl'>
+            {dictionary.main.partners.media}
+          </h2>
+          <div className='flex flex-wrap justify-evenly gap-6'>
+            {getShuffledLogos(mediaPartnerLogos).map((logo) => {
+              return (
+                <div
+                  key={logo}
+                  className='cursor-pointer opacity-50 hover:opacity-100'
+                >
+                  <p>{logo}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

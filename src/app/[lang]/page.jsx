@@ -1,104 +1,88 @@
 import CountDownTimer from '@/components/CountDownTimer';
 import NewsFeed from '@/components/NewsFeed';
 import Partners from '@/components/Partners';
-// import { getSortedPostsData } from '../../lib/posts';
+import Image from 'next/image';
 import { getDictionary } from '@/dictionaries';
 
 export default async function Home({ params }) {
   const { lang } = params;
   const dictionary = await getDictionary(lang);
-  // const { posts } = await getSortedPostsData(lang);
 
   return (
     <>
-      <section>
-        <div className='bg-gradient-to-r from-sky-500 to-indigo-500'>
-          <div className='mx-auto max-w-2xl py-32 sm:py-48 lg:py-56'>
-            <div className='text-center'>
-              <h1 className='text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl'>
-                {dictionary.main.date}
-              </h1>
-              <h2 className='text-gray-900'>{dictionary.main.monthYear}</h2>
-              <p className='mt-6 text-lg leading-8 text-gray-600'>
-                {dictionary.main.titleLocation}
-              </p>
-              {/* <div className='mt-10 flex items-center justify-center gap-x-6'>
-                <a
-                  href='#'
-                  className='rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
-                >
-                  Get started
-                </a>
-                <a
-                  href='#'
-                  className='text-sm font-semibold leading-6 text-gray-900'
-                >
-                  Learn more <span aria-hidden='true'>→</span>
-                </a>
-              </div> */}
+      <section className='h-[65vh] bg-home-bg bg-cover sm:h-[75vh]'>
+        <div className='container flex h-full flex-col justify-center gap-10 text-black sm:gap-16'>
+          <div className='text-center'>
+            <p className='text-xl sm:text-3xl'>{dictionary.main.monthYear}</p>
+            <h1 className='text-8xl font-semibold leading-none sm:text-[9rem]'>
+              {dictionary.main.date}
+            </h1>
+          </div>
+          <div className='text-center'>
+            <p className='pb-2 text-2xl font-semibold sm:pb-4 sm:text-5xl'>
+              “Let’s share the freedom!”
+            </p>
+            <p className='text-xl sm:text-3xl'>
+              {dictionary.main.titleLocation}
+            </p>
+          </div>
+        </div>
+      </section>
+      <CountDownTimer props={dictionary.main.countdownTimer} />
+      <section className='bg-blue-8'>
+        <div className='container flex flex-col gap-4 sm:gap-8'>
+          <h2 className='text-center text-2xl text-blue-2 sm:text-4xl'>
+            {dictionary.main.description.title}
+          </h2>
+          <div className='flex flex-col gap-6 sm:flex-row'>
+            <div className='flex-1'>
+              <p> {dictionary.main.description.text}</p>
+            </div>
+            <div className='flex-1'>
+              <Image
+                src='/images/openfest-2.webp'
+                width='620'
+                height='380'
+              ></Image>
             </div>
           </div>
         </div>
       </section>
-
-      <CountDownTimer props={dictionary.main.countdownTimer} />
-
-      <section className='bg-[#E2EFFE] px-24 py-12'>
-        <h2 className='pb-16 text-center text-[2.2rem] text-[#004394]'>
-          {dictionary.main.description.title}
-        </h2>
-        <div className='flex-col md:flex md:flex-row'>
-          <div className='mx-2 text-center text-[#004394]'>
-            {dictionary.main.description.text}
-          </div>
-          <div className='mx-2 text-center text-[#004394]'>
-            {dictionary.main.description.text}
+      <section>
+        <div className='container'>
+          <h2 className='pb-4 text-center text-2xl text-blue-2 sm:pb-8 sm:text-4xl'>
+            {dictionary.main.cfp.title}
+          </h2>
+          <div className='flex flex-col gap-4 sm:flex-row sm:gap-8'>
+            <div className='flex basis-1/3 flex-col items-center justify-center gap-3 rounded-xl bg-blue-2 p-6 sm:gap-6'>
+              <div className='flex h-20 w-20 items-center justify-center rounded-full bg-blue-8 text-4xl text-blue-2 sm:h-24 sm:w-24 sm:text-5xl'>
+                <i className='fa-solid fa-lightbulb'></i>
+              </div>
+              <p className='text-center text-white'>
+                {dictionary.main.cfp.lecture}
+              </p>
+            </div>
+            <div className='flex basis-1/3 flex-col items-center justify-center gap-3 rounded-xl bg-blue-2 p-6 sm:gap-6'>
+              <div className='flex h-20 w-20 items-center justify-center rounded-full bg-blue-8 text-4xl text-blue-2 sm:h-24 sm:w-24 sm:text-5xl'>
+                <i className='fa-solid fa-helmet-safety'></i>
+              </div>
+              <p className='text-center text-white'>
+                {dictionary.main.cfp.volunteers}
+              </p>
+            </div>
+            <div className='flex basis-1/3 flex-col items-center justify-center gap-3 rounded-xl bg-blue-2 p-6 sm:gap-6'>
+              <div className='flex h-20 w-20 items-center justify-center rounded-full bg-blue-8 text-4xl text-blue-2 sm:h-24 sm:w-24 sm:text-5xl'>
+                <i className='fa-solid fa-handshake-angle'></i>
+              </div>
+              <p className='text-center text-white'>
+                {dictionary.main.cfp.partners}
+              </p>
+            </div>
           </div>
         </div>
       </section>
-
-      <section>
-        <h2 className='pb-16 text-center text-[2.2rem] text-[#004394]'>
-          {dictionary.main.cfp.title}
-        </h2>
-        {/* <dl className='mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3'> */}
-        <dl className='mt-5 grid grid-cols-1 place-items-center gap-1 sm:grid-cols-3'>
-          <div className='max-w-[350px] overflow-hidden rounded-lg bg-[#004394] px-4 py-5 text-center shadow sm:p-6'>
-            <dt className='truncate text-sm font-medium text-[#004394]'>
-              <div className='m-auto mb-2 flex h-20 w-20 items-center justify-center rounded-full bg-[#C8E0FC] text-[2.3rem]'>
-                <i className='fa-solid fa-lightbulb'></i>
-              </div>
-            </dt>
-            <dd className='mt-1 text-[22px] font-semibold text-[#F2F5F9]'>
-              {dictionary.main.cfp.lecture}
-            </dd>
-          </div>
-          <div className='max-w-[350px] overflow-hidden rounded-lg bg-[#004394] px-4 py-5 text-center shadow sm:p-6'>
-            <dt className='truncate text-sm font-medium text-[#004394]'>
-              <div className='m-auto mb-2 flex h-20 w-20 items-center justify-center rounded-full bg-[#C8E0FC] text-[2.3rem]'>
-                <i className='fa-solid fa-helmet-safety'></i>
-              </div>
-            </dt>
-            <dd className='mt-1 text-[22px] font-semibold text-[#F2F5F9]'>
-              {dictionary.main.cfp.volunteers}
-            </dd>
-          </div>
-          <div className='max-w-[350px] overflow-hidden rounded-lg bg-[#004394] px-4 py-6 text-center shadow sm:p-6'>
-            <dt className='truncate text-sm font-medium text-[#004394]'>
-              <div className='m-auto mb-2 flex h-20 w-20 items-center justify-center rounded-full bg-[#C8E0FC] text-[2.3rem]'>
-                <i className='fa-solid fa-handshake-angle'></i>
-              </div>
-            </dt>
-            <dd className='mt-1 text-[22px] font-semibold text-[#F2F5F9]'>
-              {dictionary.main.cfp.partners}
-            </dd>
-          </div>
-        </dl>
-      </section>
-      <main>
-        <NewsFeed />
-        <Partners props={lang} />
-      </main>
+      <NewsFeed lang={lang} />
+      <Partners lang={lang} />
     </>
   );
 }

@@ -1,7 +1,12 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.container {
+  @apply mx-auto w-full max-w-screen-xl px-6 py-8 sm:px-12 sm:py-10;
+}
 
 @layer base {
   p {

@@ -8,8 +8,9 @@ const CountDownTimer = ({ props }) => {
 
   useEffect(() => {
     const targetDate = new Date('2024-11-02T09:30:00+03:00');
+    const countDownIntervalTime = 1000;
 
-    const interval = setInterval(() => {
+    const updateCountDown = () => {
       const now = new Date();
 
       const diff = targetDate.getTime() - now.getTime();
@@ -22,51 +23,66 @@ const CountDownTimer = ({ props }) => {
 
       const m = Math.floor((diff / (1000 * 60)) % 60);
       setMinutes(m);
-    }, 1000);
+    };
+
+    // Set time
+    updateCountDown();
+
+    // Set interval
+    const interval = setInterval(updateCountDown, countDownIntervalTime);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <section className='m-12 mb-20 pt-6'>
-      {/* <span className='mb-12 mt-4 block text-3xl text-black'>
-        {props.title}
-      </span> */}
-      <div className='flex justify-evenly'>
-        <div className='relative h-[256px] w-[256px]'>
-          <div className='absolute inset-0 rotate-[-45deg] overflow-hidden rounded-full bg-[#A9CDF7]'>
-            <div className='absolute left-0 top-0 h-full w-1/2'></div>
-            <div className='absolute left-0 top-0 h-full w-1/2 bg-[#C8E0FC]'></div>
+    <section>
+      <div className='container flex flex-col gap-4 sm:gap-8'>
+        <h2 className='text-center text-2xl text-blue-2 sm:text-start sm:text-4xl'>
+          {props.title}
+        </h2>
+        <div className='flex flex-col items-center justify-evenly gap-8 lg:flex-row'>
+          <div className='relative h-40 w-40 lg:h-64 lg:w-64'>
+            <div className='absolute inset-0 rotate-[-45deg] overflow-hidden rounded-full bg-[#A9CDF7]'>
+              <div className='absolute left-0 top-0 h-full w-1/2'></div>
+              <div className='absolute left-0 top-0 h-full w-1/2 bg-[#C8E0FC]'></div>
+            </div>
+            <div className='absolute inset-0 flex items-center justify-center'>
+              <span className='text-center font-bold text-gray-800'>
+                <p className='pb-1 pt-2 text-5xl lg:pb-3 lg:pt-4 lg:text-8xl'>
+                  {days}
+                </p>
+                <p className='text-xl font-light lg:text-5xl'> {props.days}</p>
+              </span>
+            </div>
           </div>
-          <div className='absolute inset-0 flex items-center justify-center'>
-            <span className='text-center font-bold text-gray-800'>
-              <p className='pb-[38px] pt-[14px] text-[85px]'>{days}</p>
-              <p className='text-[36px] font-light'> {props.days}</p>
-            </span>
+          <div className='relative h-40 w-40 lg:h-64 lg:w-64'>
+            <div className='absolute inset-0 rotate-[-45deg] overflow-hidden rounded-full bg-[#A9CDF7]'>
+              <div className='absolute left-0 top-0 h-full w-full'></div>
+            </div>
+            <div className='absolute inset-0 flex items-center justify-center'>
+              <span className='text-center font-bold text-gray-800'>
+                <p className='pb-1 pt-2 text-5xl lg:pb-3 lg:pt-4 lg:text-8xl'>
+                  {hours}
+                </p>
+                <p className='text-xl font-light lg:text-5xl'> {props.hours}</p>
+              </span>
+            </div>
           </div>
-        </div>
-        <div className='relative h-[256px] w-[256px]'>
-          <div className='absolute inset-0 rotate-[-45deg] overflow-hidden rounded-full bg-[#A9CDF7]'>
-            <div className='absolute left-0 top-0 h-full w-1/2'></div>
-            <div className='absolute left-0 top-0 h-full w-1/2 bg-[#C8E0FC]'></div>
-          </div>
-          <div className='absolute inset-0 flex items-center justify-center'>
-            <span className='text-center font-bold text-gray-800'>
-              <p className='pb-[38px] pt-[14px] text-[85px]'>{hours}</p>
-              <p className='text-[36px] font-light'> {props.hours}</p>
-            </span>
-          </div>
-        </div>
-        <div className='relative h-[256px] w-[256px]'>
-          <div className='absolute inset-0 rotate-[-45deg] overflow-hidden rounded-full bg-[#A9CDF7]'>
-            <div className='absolute left-0 top-0 h-full w-1/2'></div>
-            <div className='absolute left-0 top-0 h-full w-1/2 bg-[#C8E0FC]'></div>
-          </div>
-          <div className='absolute inset-0 flex items-center justify-center'>
-            <span className='text-center font-bold text-gray-800'>
-              <p className='pb-[38px] pt-[14px] text-[85px]'>{minutes}</p>
-              <p className='text-[36px] font-light'> {props.minutes}</p>
-            </span>
+          <div className='relative h-40 w-40 lg:h-64 lg:w-64'>
+            <div className='absolute inset-0 rotate-[-45deg] overflow-hidden rounded-full bg-[#A9CDF7]'>
+              <div className='absolute left-0 top-0 h-full w-1/2'></div>
+              <div className='absolute right-0 top-0 h-full w-1/2 bg-[#C8E0FC]'></div>
+            </div>
+            <div className='absolute inset-0 flex items-center justify-center'>
+              <span className='text-center font-bold text-gray-800'>
+                <p className='pb-1 pt-2 text-5xl lg:pb-3 lg:pt-4 lg:text-8xl'>
+                  {minutes}
+                </p>
+                <p className='text-xl font-light lg:text-5xl'>
+                  {props.minutes}
+                </p>
+              </span>
+            </div>
           </div>
         </div>
       </div>

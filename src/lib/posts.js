@@ -6,6 +6,7 @@ import { i18n } from '../../i18n-config';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import process from 'process';
 
 async function getTruncatedPostContent(content) {
   const words = content.split(' ');
@@ -51,9 +52,7 @@ export const getSortedPostsData = cache(async (locale) => {
     }
   });
 
-  return {
-    posts: sortedPostsData,
-  };
+  return sortedPostsData;
 });
 
 export const getAllPosts = cache(async () => {
