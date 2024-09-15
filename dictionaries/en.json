@@ -7,11 +7,10 @@
     "contact": "Contact"
   },
   "main": {
-    "date": "2 - 3",
-    "monthYear": "November, 2024",
-    "titleLocation": "Innovation forum \"John Atanasoff\" – Sofia Tech Park",
+    "date": "2 - 3 november 2024",
+    "titleLocation": "Sofia Tech Park",
     "countdownTimer": {
-      "title": "OpenFest starts in:",
+      "title": "OpenFest starts in",
       "days": "Days",
       "hours": "Hours",
       "minutes": "Minutes"

@@ -18,7 +18,7 @@ const Partners = async ({ lang }) => {
 
   return (
     <section>
-      <div className='container flex flex-col gap-8 sm:gap-12'>
+      <div className='container flex flex-col gap-10 !py-16 sm:gap-16'>
         <div>
           <h2 className='pb-4 text-center text-2xl text-blue-2 sm:pb-8 sm:text-4xl'>
             {dictionary.main.partners.sponsors}

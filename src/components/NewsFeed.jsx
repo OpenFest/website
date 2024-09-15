@@ -17,7 +17,7 @@ const NewsFeed = async ({ lang }) => {
             return (
               <div
                 key={post.title}
-                className='flex basis-1/3 flex-col overflow-hidden rounded-xl shadow-xl'
+                className='flex basis-1/3 flex-col overflow-hidden rounded-xl drop-shadow-2xl'
               >
                 <div>
                   <Image src={post.imageUrl} width='400' height='190'></Image>

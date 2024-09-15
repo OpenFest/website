@@ -10,19 +10,21 @@ export default async function Home({ params }) {
 
   return (
     <>
-      <section className='h-[65vh] bg-home-bg bg-cover sm:h-[75vh]'>
+      <section className='h-[65vh] bg-home-bg bg-cover bg-bottom sm:h-[75vh]'>
         <div className='container flex h-full flex-col justify-center gap-10 text-black sm:gap-16'>
           <div className='text-center'>
-            <p className='text-xl sm:text-3xl'>{dictionary.main.monthYear}</p>
-            <h1 className='text-8xl font-semibold leading-none sm:text-[9rem]'>
+            <p className='font-semibold uppercase tracking-[0.2em] text-white sm:text-xl'>
               {dictionary.main.date}
+            </p>
+            <h1 className='text-6xl font-bold text-white sm:text-7xl'>
+              OpenFest <br /> 2024
             </h1>
           </div>
           <div className='text-center'>
-            <p className='pb-2 text-2xl font-semibold sm:pb-4 sm:text-5xl'>
+            <p className='pb-2 text-2xl font-semibold text-white sm:pb-4 sm:text-5xl'>
               “Let’s share the freedom!”
             </p>
-            <p className='text-xl sm:text-3xl'>
+            <p className='text-xl text-white sm:text-3xl'>
               {dictionary.main.titleLocation}
             </p>
           </div>
@@ -55,7 +57,7 @@ export default async function Home({ params }) {
           </h2>
           <div className='flex flex-col gap-4 sm:flex-row sm:gap-8'>
             <div className='flex basis-1/3 flex-col items-center justify-center gap-3 rounded-xl bg-blue-2 p-6 sm:gap-6'>
-              <div className='flex h-20 w-20 items-center justify-center rounded-full bg-blue-8 text-4xl text-blue-2 sm:h-24 sm:w-24 sm:text-5xl'>
+              <div className='flex h-20 w-20 items-center justify-center rounded-full bg-blue-8 text-4xl text-blue-2 shadow-md shadow-black sm:h-24 sm:w-24 sm:text-5xl'>
                 <i className='fa-solid fa-lightbulb'></i>
               </div>
               <p className='text-center text-white'>
@@ -63,7 +65,7 @@ export default async function Home({ params }) {
               </p>
             </div>
             <div className='flex basis-1/3 flex-col items-center justify-center gap-3 rounded-xl bg-blue-2 p-6 sm:gap-6'>
-              <div className='flex h-20 w-20 items-center justify-center rounded-full bg-blue-8 text-4xl text-blue-2 sm:h-24 sm:w-24 sm:text-5xl'>
+              <div className='flex h-20 w-20 items-center justify-center rounded-full bg-blue-8 text-4xl text-blue-2 shadow-md shadow-black sm:h-24 sm:w-24 sm:text-5xl'>
                 <i className='fa-solid fa-helmet-safety'></i>
               </div>
               <p className='text-center text-white'>
@@ -71,7 +73,7 @@ export default async function Home({ params }) {
               </p>
             </div>
             <div className='flex basis-1/3 flex-col items-center justify-center gap-3 rounded-xl bg-blue-2 p-6 sm:gap-6'>
-              <div className='flex h-20 w-20 items-center justify-center rounded-full bg-blue-8 text-4xl text-blue-2 sm:h-24 sm:w-24 sm:text-5xl'>
+              <div className='flex h-20 w-20 items-center justify-center rounded-full bg-blue-8 text-4xl text-blue-2 shadow-md shadow-black sm:h-24 sm:w-24 sm:text-5xl'>
                 <i className='fa-solid fa-handshake-angle'></i>
               </div>
               <p className='text-center text-white'>
