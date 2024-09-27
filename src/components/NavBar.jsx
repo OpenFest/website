@@ -30,7 +30,7 @@ import OpenFestLogo from './openfest/openfest-logo.svg';
 
 const open = true;
 
-const Navbar = async ({ lang }) => {
+const NavBar = async ({ lang }) => {
   const dictionary = await getDictionary(lang);
 
   return (
@@ -87,4 +87,4 @@ const Navbar = async ({ lang }) => {
   );
 };
 
-export default Navbar;
+export default NavBar;
